@@ -10,7 +10,9 @@ import com.example.crocodile.R
 
 class TeamsAdapter : RecyclerView.Adapter<TeamsAdapter.ViewHolder>(){
 
-    private val teamNames = arrayOf("Маугли", "Атомные самураи")
+    private val teamNames = arrayOf("Маугли", "Атомные самураи", "Атомные самураи",
+            "Атомные самураи", "Атомные самураи", "Атомные самураи", "Атомные самураи",
+            "Атомные самураи")
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
