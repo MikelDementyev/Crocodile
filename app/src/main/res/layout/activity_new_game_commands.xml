@@ -13,12 +13,12 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/back_button"
             android:layout_width="25pt"
             android:layout_height="10pt"
             android:background="@drawable/go_back"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="-170dp"
-            tools:ignore="InvalidId" />
+            android:layout_marginStart="-170dp"/>
 
         <LinearLayout
             android:layout_width="130pt"
