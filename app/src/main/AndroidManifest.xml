@@ -21,7 +21,19 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".RulesActivity"
+            android:name=".Activities.RulesActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.OptionsActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.ScoreActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.PlayActivity"
             android:label="@string/app_name" >
         </activity>
     </application>

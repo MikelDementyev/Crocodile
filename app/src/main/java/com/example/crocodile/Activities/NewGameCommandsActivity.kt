@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.crocodile.Activities.OptionsActivity
 import com.example.crocodile.Adapters.TeamsAdapter
 
 class NewGameCommandsActivity : AppCompatActivity() {
@@ -27,6 +28,12 @@ class NewGameCommandsActivity : AppCompatActivity() {
         val backButton: Button = findViewById(R.id.back_button)
         backButton.setOnClickListener {
             onBackPressed()
+        }
+
+        val nextButton: Button = findViewById(R.id.next_button)
+        nextButton.setOnClickListener {
+            val intent = Intent(this, OptionsActivity::class.java)
+            startActivity(intent)
         }
     }
 }
