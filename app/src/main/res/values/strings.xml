@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Crocodile</string>
+    <string name="crocodile">крокодил</string>
+    <string name="new_game">новая игра</string>
+    <string name="continue_game">продолжить</string>
+    <string name="regulations">правила</string>
+    <string name="commands">команды</string>
+    <string name="plus">+</string>
+    <string name="next">далее</string>
+</resources>
