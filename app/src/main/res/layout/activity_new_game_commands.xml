@@ -18,7 +18,9 @@
             android:background="@drawable/go_back"
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
-            android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_gravity="start"
+            android:layout_margin="10dp"/>
 
         <LinearLayout
             android:layout_width="130pt"
@@ -33,7 +35,7 @@
                 android:text="@string/commands"
                 android:textColor="#000000"
                 android:textSize="18pt"
-                android:layout_marginTop="10pt"/>
+                android:layout_marginTop="5pt"/>
 
             <ImageButton
                 android:id="@+id/plus"

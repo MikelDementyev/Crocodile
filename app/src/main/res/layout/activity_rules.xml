@@ -2,6 +2,108 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:isScrollContainer="true">
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="25pt"
+                android:layout_height="10pt"
+                android:background="@drawable/go_back"
+                android:layout_gravity="start"
+                android:layout_margin="10dp"/>
+
+            <LinearLayout
+                android:layout_width="170pt"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seymour_one"
+                    android:gravity="center"
+                    android:text="@string/rules"
+                    android:textColor="#000000"
+                    android:textSize="18pt"
+                    android:layout_marginTop="5pt"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seymour_one"
+                    android:gravity="center"
+                    android:text="@string/main_string"
+                    android:textColor="#000000"
+                    android:textSize="10pt"
+                    android:layout_marginTop="5pt"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seymour_one"
+                    android:gravity="center"
+                    android:text="@string/first_rule"
+                    android:textColor="#000000"
+                    android:textSize="8pt"
+                    android:layout_marginTop="10pt"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seymour_one"
+                    android:gravity="center"
+                    android:text="@string/second_rule"
+                    android:textColor="#000000"
+                    android:textSize="8pt"
+                    android:layout_marginTop="5pt"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seymour_one"
+                    android:gravity="center"
+                    android:text="@string/third_rule"
+                    android:textColor="#000000"
+                    android:textSize="8pt"
+                    android:layout_marginTop="5pt"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seymour_one"
+                    android:gravity="center"
+                    android:text="@string/fourth_rule"
+                    android:textColor="#000000"
+                    android:textSize="8pt"
+                    android:layout_marginTop="5pt"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/seymour_one"
+                    android:gravity="center"
+                    android:text="@string/fifth_rule"
+                    android:textColor="#000000"
+                    android:textSize="8pt"
+                    android:layout_marginTop="5pt"
+                    android:layout_marginBottom="20pt"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
