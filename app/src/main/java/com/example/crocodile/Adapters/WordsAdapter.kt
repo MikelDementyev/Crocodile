@@ -8,32 +8,30 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crocodile.R
 
-class TeamsAdapter : RecyclerView.Adapter<TeamsAdapter.ViewHolder>(){
+class WordsAdapter : RecyclerView.Adapter<WordsAdapter.ViewHolder>(){
 
-    private val teamNames = arrayOf("маугли", "атомные самураи", "атомные самураи",
-            "атомные самураи", "атомные самураи", "атомные самураи", "атомные самураи",
-            "атомные самураи")
+    private val words = arrayOf("якорь", "штурвал", "парус", "пират", "палуба")
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var teamName: TextView? = null
+        var word: TextView? = null
 
         init {
-            teamName = itemView.findViewById(R.id.team_name)
+            word = itemView.findViewById(R.id.word)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
-            .inflate(R.layout.team_item_card, parent, false)
+            .inflate(R.layout.word_card, parent, false)
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.teamName?.text = teamNames[position]
+        holder.word?.text = words[position]
     }
 
     override fun getItemCount(): Int {
-        return teamNames.count()
+        return words.count()
     }
 }

@@ -4,22 +4,19 @@
         <layer-list>
             <item android:bottom="2dp" android:left="2dp">
                 <shape>
-                    <corners android:radius="8dp" />
-                    <solid android:color="#D6D6D6" />
+                    <corners android:radius="14dp" />
                 </shape>
             </item>
             <item android:right="5dp" android:top="5dp">
                 <shape>
-                    <corners android:radius="8dp" />
-                    <solid android:color="#33716E6E" />
+                    <corners android:radius="14dp" />
                 </shape>
             </item>
             <item android:bottom="2dp" android:left="2dp">
                 <shape>
-                    <solid android:color="@color/button_color"/>
-                    <stroke android:color="@color/stroke_color"
-                        android:width="3dp"/>
-                    <corners android:radius="4dp" />
+                    <stroke android:color="@color/stroke_black"
+                        android:width="4dp"/>
+                    <corners android:radius="15dp" />
                     <padding android:bottom="10dp" android:left="10dp"
                         android:right="10dp" android:top="10dp" />
                 </shape>

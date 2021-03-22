@@ -52,8 +52,8 @@
             android:layout_marginTop="15dp"
             android:layout_below="@+id/plus"
             android:layout_alignBottom="@+id/next_button"
-            android:layout_marginBottom="50dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:layout_marginBottom="80dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
         <Button
             android:id="@+id/next_button"

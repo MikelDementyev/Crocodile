@@ -19,5 +19,11 @@ class OptionsActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             onBackPressed()
         }
+
+        val nextButton: Button = findViewById(R.id.next_button)
+        nextButton.setOnClickListener {
+            val intent = Intent(this, ScoreActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

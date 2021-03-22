@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.crocodile.Activities.ResultActivity
 import com.example.crocodile.Activities.RulesActivity
 
 class MainActivity : AppCompatActivity() {
@@ -12,15 +13,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val buttonNewGame: Button = findViewById(R.id.new_game)
-        val rules: Button = findViewById(R.id.rules)
+        val buttonRules: Button = findViewById(R.id.rules)
+        val buttonContinueGame: Button = findViewById(R.id.continue_game)
 
         buttonNewGame.setOnClickListener {
-            val intent = Intent(this, NewGameCommandsActivity::class.java)
+            val intent = Intent(this, CommandsActivity::class.java)
             startActivity(intent)
         }
 
-        rules.setOnClickListener {
+        buttonRules.setOnClickListener {
             val intent = Intent(this, RulesActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonContinueGame.setOnClickListener {
+            val intent = Intent(this, ResultActivity::class.java)
             startActivity(intent)
         }
     }

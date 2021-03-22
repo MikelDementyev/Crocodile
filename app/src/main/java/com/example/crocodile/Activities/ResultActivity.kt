@@ -9,21 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.crocodile.Adapters.TeamsAdapter
 
-class ScoreActivity : AppCompatActivity() {
+class ResultActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_score)
-
-        val backButton: Button = findViewById(R.id.back_button)
-        backButton.setOnClickListener {
-            onBackPressed()
-        }
-
-        val nextButton: Button = findViewById(R.id.next_button)
-        nextButton.setOnClickListener {
-            val intent = Intent(this, PlayActivity::class.java)
-            startActivity(intent)
-        }
+        setContentView(R.layout.activity_result)
     }
 }

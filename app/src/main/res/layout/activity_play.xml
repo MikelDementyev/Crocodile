@@ -1,65 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_play">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/back_button"
-            android:layout_width="25pt"
-            android:layout_height="10pt"
-            android:background="@drawable/go_back"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="start"
-            android:layout_margin="10dp"/>
-
-        <LinearLayout
-            android:layout_width="130pt"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/seymour_one"
-                android:gravity="center"
-                android:text="@string/commands"
-                android:textColor="#000000"
-                android:textSize="18pt"
-                android:layout_marginTop="5pt"/>
-
-            <ImageButton
-                android:id="@+id/plus"
-                android:layout_width="match_parent"
-                android:layout_height="22pt"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button"
-                android:src="@drawable/plus"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/teams_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-
-        </LinearLayout>
-
-        <Button
+        <TextView
+            android:id="@+id/play_team_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button"
             android:fontFamily="@font/seymour_one"
-            android:text="@string/next"
+            android:gravity="center"
+            android:text="@string/team_name_round"
             android:textColor="#000000"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"/>
+            android:textSize="35sp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/guessed"
+            android:ems="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:fontFamily="@font/seymour_one"
+            android:gravity="center_horizontal"
+            android:text="@string/guessed"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/missed"
+            android:ems="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:fontFamily="@font/seymour_one"
+            android:gravity="center_horizontal"
+            android:text="@string/missed"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/seymour_one"
+            android:gravity="center"
+            android:text="00:59"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:layout_below="@+id/play_team_label"
+            android:layout_centerHorizontal="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/words_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_word_card"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/time"
+            android:layout_alignBottom="@+id/score_team"
+            android:layout_marginBottom="80dp"/>
+
+        <TextView
+            android:id="@+id/score_team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/seymour_one"
+            android:text="@string/score_team"
+            android:textSize="25sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_marginBottom="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 

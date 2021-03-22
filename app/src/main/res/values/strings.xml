@@ -15,4 +15,12 @@
     <string name="fourth_rule">Отгаданное слово приносит команде одно очко, а за пропущенное слово команда штрафуется.</string>
     <string name="fifth_rule">Победителем считается команда, у которой количество слов достигло установленного значения. Раунды проходят пока не определен победитель.</string>
     <string name="options">параметры</string>
+    <string name="play">играть</string>
+    <string name="score">счет</string>
+    <string name="round">раунд 1</string>
+    <string name="play_team">играет команда</string>
+    <string name="team_name_round">маугли</string>
+    <string name="guessed">отгадано</string>
+    <string name="missed">пропу\nщено</string>
+    <string name="score_team">0 очков</string>
 </resources>
