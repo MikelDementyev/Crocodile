@@ -18,12 +18,12 @@ class PlayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play)
-
-        val recyclerView: RecyclerView = findViewById(R.id.words_recycler_view)
-        layoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = layoutManager
-
-        adapter = WordsAdapter()
-        recyclerView.adapter = adapter
+//
+//        val recyclerView: RecyclerView = findViewById(R.id.words_recycler_view)
+//        layoutManager = LinearLayoutManager(this)
+//        recyclerView.layoutManager = layoutManager
+//
+//        adapter = WordsAdapter()
+//        recyclerView.adapter = adapter
     }
 }
