@@ -23,4 +23,9 @@
     <string name="guessed">отгадано</string>
     <string name="missed">пропу\nщено</string>
     <string name="score_team">0 очков</string>
+    <string name="menu">меню</string>
+    <string name="winner">победитель</string>
+    <string name="count">15</string>
+    <string name="points">очков</string>
+    <string name="team_name">атомные самураи</string>
 </resources>
