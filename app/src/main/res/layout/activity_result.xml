@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/seymour_one"
-                android:text="@string/count"
+                android:text="13"
                 android:textColor="#000000"
                 android:textSize="25sp"
                 android:layout_below="@+id/fing_down"
