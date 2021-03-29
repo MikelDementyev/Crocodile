@@ -125,6 +125,134 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/cardSecond"
+                    android:layout_margin="5dp"
+                    card_view:cardBackgroundColor="#BFCE82"
+                    card_view:cardElevation="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
+                        <TextView
+                            android:id="@+id/wordSecond"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seymour_one"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+                        </TextView>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/cardThird"
+                    android:layout_margin="5dp"
+                    card_view:cardBackgroundColor="#BFCE82"
+                    card_view:cardElevation="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
+                        <TextView
+                            android:id="@+id/wordThird"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seymour_one"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+                        </TextView>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/cardFourth"
+                    android:layout_margin="5dp"
+                    card_view:cardBackgroundColor="#BFCE82"
+                    card_view:cardElevation="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
+                        <TextView
+                            android:id="@+id/wordFourth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seymour_one"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+                        </TextView>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/cardFifth"
+                    android:layout_margin="5dp"
+                    card_view:cardBackgroundColor="#BFCE82"
+                    card_view:cardElevation="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp">
+
+                        <TextView
+                            android:id="@+id/wordFifth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/seymour_one"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true">
+                        </TextView>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
             </androidx.constraintlayout.motion.widget.MotionLayout>
 
         </FrameLayout>
