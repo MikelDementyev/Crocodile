@@ -131,9 +131,6 @@ class PlayActivity : AppCompatActivity() {
                             && thirdCard.alpha == 0.0f
                             && fourthCard.alpha == 0.0f
                             && fifthCard.alpha == 0.0f) {
-                        for (card in cardsArray) {
-                            animateSwipeBack(card)
-                        }
                         cardFlipAnimation()
                     }
                 }
@@ -162,6 +159,9 @@ class PlayActivity : AppCompatActivity() {
             override fun onAnimationEnd(animation: Animator) {
                 super.onAnimationEnd(animation)
                 oa2.start()
+                for (card in cardsArray) {
+                    animateSwipeBack(card)
+                }
             }
         })
         oa1.start()
