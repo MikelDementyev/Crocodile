@@ -2,14 +2,18 @@ package com.example.crocodile.Activities
 
 import android.animation.Animator
 import android.annotation.SuppressLint
-import com.example.crocodile.R
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.example.crocodile.Listeners.OnSwipeTouchListener
+import com.example.crocodile.R
+import java.util.concurrent.TimeUnit
+
 
 class PlayActivity : AppCompatActivity() {
 
@@ -28,6 +32,21 @@ class PlayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play)
+
+        val timeLabel: TextView = findViewById(R.id.time)
+        val timer = object: CountDownTimer(60000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val minutes: Long = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
+                val seconds: Long = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
+                val timeString = String.format("%02d:%02d", minutes, seconds)
+                timeLabel.text = timeString
+            }
+            override fun onFinish() {
+                val intent = Intent(this@PlayActivity, ResultActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        timer.start()
 
         val parentLinear: LinearLayout = findViewById(R.id.parentLinear)
         scoreLabel = findViewById(R.id.score_team)
