@@ -1,11 +1,15 @@
 package com.example.crocodile.Activities
 
 import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,12 +30,16 @@ class PlayActivity : AppCompatActivity() {
     private lateinit var cardsArray: Array<CardView>
     private lateinit var scoreLabel: TextView
 
+    private lateinit var cardLayout: LinearLayout
+
     private var score = 0
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play)
+
+        cardLayout = findViewById(R.id.cardLayout)
 
         val timeLabel: TextView = findViewById(R.id.time)
         val timer = object: CountDownTimer(60000, 1000) {
@@ -126,6 +134,7 @@ class PlayActivity : AppCompatActivity() {
                         for (card in cardsArray) {
                             animateSwipeBack(card)
                         }
+                        cardFlipAnimation()
                     }
                 }
                 override fun onAnimationRepeat(animation: Animator?) {}
@@ -142,5 +151,19 @@ class PlayActivity : AppCompatActivity() {
                 .translationX(0.0f)
                 .alpha(1.0f)
                 .setListener(null)
+    }
+
+    fun cardFlipAnimation () {
+        val oa1 = ObjectAnimator.ofFloat(cardLayout, "scaleX", 1f, 0f)
+        val oa2 = ObjectAnimator.ofFloat(cardLayout, "scaleX", 0f, 1f)
+        oa1.interpolator = DecelerateInterpolator()
+        oa2.interpolator = AccelerateDecelerateInterpolator()
+        oa1.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                super.onAnimationEnd(animation)
+                oa2.start()
+            }
+        })
+        oa1.start()
     }
 }
