@@ -44,10 +44,7 @@ class PlayActivity : AppCompatActivity() {
         val timeLabel: TextView = findViewById(R.id.time)
         val timer = object: CountDownTimer(60000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                val minutes: Long = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
-                val seconds: Long = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
-                val timeString = String.format("%02d:%02d", minutes, seconds)
-                timeLabel.text = timeString
+                timeLabel.text = rightTimer(millisUntilFinished)
             }
             override fun onFinish() {
                 val intent = Intent(this@PlayActivity, ResultActivity::class.java)
@@ -112,6 +109,12 @@ class PlayActivity : AppCompatActivity() {
         cardsArray = arrayOf(firstCard, secondCard, thirdCard, fourthCard, fifthCard)
     }
 
+    fun rightTimer(millisUntilFinished: Long): String {
+        val minutes: Long = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
+        val seconds: Long = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
+        return String.format("%02d:%02d", minutes, seconds)
+    }
+
     fun animateSwipe(parentView: LinearLayout, view: CardView, isRight: Boolean) {
         view.visibility = View.VISIBLE
         view.alpha = 1.0f
@@ -120,7 +123,7 @@ class PlayActivity : AppCompatActivity() {
 
         scoreLabel.text = "$score очков"
 
-        val xOffset = (parentView.width / 2).toFloat()
+        val xOffset = xOffset(parentView)
         view.animate()
             .translationX(if(isRight) xOffset else -xOffset)
             .alpha(0.0f)
@@ -138,6 +141,10 @@ class PlayActivity : AppCompatActivity() {
                 override fun onAnimationCancel(animation: Animator?) {}
                 override fun onAnimationStart(animation: Animator?) {}
             })
+    }
+
+    private fun xOffset(parentView: LinearLayout): Float {
+        return (parentView.width / 2).toFloat()
     }
 
     fun animateSwipeBack(view: CardView) {
