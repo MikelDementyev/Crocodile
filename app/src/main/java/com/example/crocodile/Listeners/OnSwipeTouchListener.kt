@@ -1,4 +1,4 @@
-package com.example.crocodile.Activities
+package com.example.crocodile.Listeners
 
 import android.content.Context
 import android.view.GestureDetector
