@@ -21,4 +21,9 @@ class ExampleUnitTest {
         val time = PlayActivity().rightTimer(60000)
         assertEquals("01:60", time)
     }
+
+    @Test
+    fun scoreCalc() {
+        assertEquals(4, PlayActivity().calcScore(true,5))
+    }
 }

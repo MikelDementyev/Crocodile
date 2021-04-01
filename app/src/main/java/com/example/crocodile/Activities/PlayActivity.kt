@@ -119,7 +119,7 @@ class PlayActivity : AppCompatActivity() {
         view.visibility = View.VISIBLE
         view.alpha = 1.0f
 
-        score += if(isRight) -1 else 1
+        score = calcScore(isRight, score)
 
         scoreLabel.text = "$score очков"
 
@@ -141,6 +141,12 @@ class PlayActivity : AppCompatActivity() {
                 override fun onAnimationCancel(animation: Animator?) {}
                 override fun onAnimationStart(animation: Animator?) {}
             })
+    }
+
+    fun calcScore(isRight: Boolean, scoreCalc: Int): Int {
+        var score = scoreCalc
+        score += if(isRight) -1 else 1
+        return score
     }
 
     private fun xOffset(parentView: LinearLayout): Float {
