@@ -30,6 +30,9 @@ class PlayActivity : AppCompatActivity() {
     private lateinit var cardsArray: Array<CardView>
     private lateinit var scoreLabel: TextView
 
+    private lateinit var guessLabel: TextView
+    private lateinit var missLabel: TextView
+
     private lateinit var cardLayout: LinearLayout
 
     private var score = 0
@@ -40,6 +43,9 @@ class PlayActivity : AppCompatActivity() {
         setContentView(R.layout.activity_play)
 
         cardLayout = findViewById(R.id.cardLayout)
+
+        guessLabel = findViewById(R.id.guessed)
+        missLabel = findViewById(R.id.missed)
 
         val timeLabel: TextView = findViewById(R.id.time)
         val timer = object: CountDownTimer(60000, 1000) {
@@ -127,19 +133,17 @@ class PlayActivity : AppCompatActivity() {
         view.animate()
             .translationX(if(isRight) xOffset else -xOffset)
             .alpha(0.0f)
-            .setListener(object : Animator.AnimatorListener {
-                override fun onAnimationEnd(animation: Animator) {
-                    if (ifCardsAreTransparent(cardsArray)) {
-                        cardFlipAnimation()
-                    }
+            .withEndAction {
+                if (isCardsAreTransparent(cardsArray)) {
+                    cardFlipAnimation()
                 }
-                override fun onAnimationRepeat(animation: Animator?) {}
-                override fun onAnimationCancel(animation: Animator?) {}
-                override fun onAnimationStart(animation: Animator?) {}
-            })
+            }
+
+        val animationView = if (isRight) missLabel else guessLabel
+        pulseAnimation(animationView)
     }
 
-    fun ifCardsAreTransparent(cardsArray: Array<CardView>) : Boolean {
+    fun isCardsAreTransparent(cardsArray: Array<CardView>) : Boolean {
         cardsArray.iterator().forEach {
             if (it.alpha == 0.0f) {}
             else return false
@@ -167,7 +171,7 @@ class PlayActivity : AppCompatActivity() {
                 .setListener(null)
     }
 
-    fun cardFlipAnimation () {
+    private fun cardFlipAnimation () {
         val oa1 = ObjectAnimator.ofFloat(cardLayout, "scaleX", 1f, 0f)
         val oa2 = ObjectAnimator.ofFloat(cardLayout, "scaleX", 0f, 1f)
         oa1.interpolator = DecelerateInterpolator()
@@ -182,5 +186,15 @@ class PlayActivity : AppCompatActivity() {
             }
         })
         oa1.start()
+    }
+
+    private fun pulseAnimation(view: TextView) {
+        view.visibility = View.VISIBLE
+        view.alpha = 1.0f
+        view.animate()
+                .alpha(0.0f)
+                .withEndAction {
+                    view.animate().alpha(1.0f)
+                }
     }
 }
