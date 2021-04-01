@@ -1,12 +1,9 @@
 package com.example.crocodile
 
-import androidx.cardview.widget.CardView
 import com.example.crocodile.Activities.PlayActivity
 import org.junit.Test
 
 import org.junit.Assert.*
-import org.junit.Before
-import org.junit.runner.manipulation.Ordering
 
 /**
  * Example local unit test, which will execute on the development machine (host).
