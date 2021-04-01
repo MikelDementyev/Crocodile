@@ -129,11 +129,7 @@ class PlayActivity : AppCompatActivity() {
             .alpha(0.0f)
             .setListener(object : Animator.AnimatorListener {
                 override fun onAnimationEnd(animation: Animator) {
-                    if (firstCard.alpha == 0.0f
-                            && secondCard.alpha == 0.0f
-                            && thirdCard.alpha == 0.0f
-                            && fourthCard.alpha == 0.0f
-                            && fifthCard.alpha == 0.0f) {
+                    if (ifCardsAreTransparent(cardsArray)) {
                         cardFlipAnimation()
                     }
                 }
@@ -141,6 +137,14 @@ class PlayActivity : AppCompatActivity() {
                 override fun onAnimationCancel(animation: Animator?) {}
                 override fun onAnimationStart(animation: Animator?) {}
             })
+    }
+
+    fun ifCardsAreTransparent(cardsArray: Array<CardView>) : Boolean {
+        cardsArray.iterator().forEach {
+            if (it.alpha == 0.0f) {}
+            else return false
+        }
+        return true
     }
 
     fun calcScore(isRight: Boolean, scoreCalc: Int): Int {
