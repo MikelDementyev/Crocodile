@@ -83,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/seymour_one"
                             android:textColor="#000000"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:text="+5    якорь"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true">
@@ -122,7 +122,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/seymour_one"
                             android:textColor="#000000"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:text="+4    штурвал"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true">
@@ -161,7 +161,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/seymour_one"
                             android:textColor="#000000"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:text="+3    парус"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true">
@@ -200,7 +200,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/seymour_one"
                             android:textColor="#000000"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:text="+2    пират"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true">
@@ -239,7 +239,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/seymour_one"
                             android:textColor="#000000"
-                            android:textSize="20sp"
+                            android:textSize="17sp"
                             android:text="+1    палуба"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true">
