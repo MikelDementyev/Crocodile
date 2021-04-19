@@ -14,8 +14,12 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.example.crocodile.Helpers.CurrentGameStatsHelper
+import com.example.crocodile.Helpers.OptionsHelper
+import com.example.crocodile.Helpers.SharedPreferenceHelper
 import com.example.crocodile.Listeners.OnSwipeTouchListener
 import com.example.crocodile.R
+import org.w3c.dom.Text
 import java.util.concurrent.TimeUnit
 
 
@@ -42,19 +46,38 @@ class PlayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play)
 
+        val teamNameLabel: TextView = findViewById(R.id.play_team_label)
+        teamNameLabel.text = CurrentGameStatsHelper.getCurrentTeamName(this)
+
         cardLayout = findViewById(R.id.cardLayout)
 
         guessLabel = findViewById(R.id.guessed)
         missLabel = findViewById(R.id.missed)
 
         val timeLabel: TextView = findViewById(R.id.time)
-        val timer = object: CountDownTimer(60000, 1000) {
+        val timerLong = OptionsHelper.getTimesForRoundPref(this)
+        val timer = object: CountDownTimer((timerLong*1000).toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLabel.text = rightTimer(millisUntilFinished)
             }
             override fun onFinish() {
-                val intent = Intent(this@PlayActivity, ResultActivity::class.java)
-                startActivity(intent)
+                CurrentGameStatsHelper.saveCurrentTeamScore(this@PlayActivity, score)
+                val currentTeamScore = CurrentGameStatsHelper.getCurrentTeamScore(this@PlayActivity)
+                val anotherTeamScore = CurrentGameStatsHelper.getAnotherTeamScore(this@PlayActivity)
+                if (CurrentGameStatsHelper.getIsGameCanFinish(this@PlayActivity)
+                    && (currentTeamScore >= OptionsHelper.getWordsToWinPref(this@PlayActivity)
+                    || anotherTeamScore >= OptionsHelper.getWordsToWinPref(this@PlayActivity))
+                    && currentTeamScore != anotherTeamScore) {
+                    if (anotherTeamScore > currentTeamScore) {
+                        CurrentGameStatsHelper.swapCurrentTeamQueue(this@PlayActivity)
+                    }
+                    val intent = Intent(this@PlayActivity, ResultActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    CurrentGameStatsHelper.saveIncreasedRoundNumber(this@PlayActivity)
+                    CurrentGameStatsHelper.swapCurrentTeamQueue(this@PlayActivity)
+                    onBackPressed()
+                }
             }
         }
         timer.start()
@@ -125,7 +148,7 @@ class PlayActivity : AppCompatActivity() {
         view.visibility = View.VISIBLE
         view.alpha = 1.0f
 
-        score = calcScore(isRight, score)
+        calcScore(isRight, view)
 
         scoreLabel.text = "$score очков"
 
@@ -151,10 +174,27 @@ class PlayActivity : AppCompatActivity() {
         return true
     }
 
-    fun calcScore(isRight: Boolean, scoreCalc: Int): Int {
-        var score = scoreCalc
-        score += if(isRight) -1 else 1
-        return score
+    fun calcScore(isRight: Boolean, view: CardView) {
+        val answerPrice = getAnswerPrice(view)
+        var appendingScore = if(isRight) -answerPrice else answerPrice
+        if (appendingScore < 0 && !OptionsHelper.getSkipSwitchPref(this) ) {
+            appendingScore = 0
+        }
+        score += appendingScore
+        if (score < 0) { score = 0 }
+    }
+
+    fun getAnswerPrice(view: CardView): Int {
+        return when(view) {
+            firstCard -> 5
+            secondCard -> 4
+            thirdCard -> 3
+            fourthCard -> 2
+            fifthCard -> 1
+            else -> {
+                1
+            }
+        }
     }
 
     private fun xOffset(parentView: LinearLayout): Float {
