@@ -71,6 +71,7 @@ class PlayActivity : AppCompatActivity() {
                     if (anotherTeamScore > currentTeamScore) {
                         CurrentGameStatsHelper.swapCurrentTeamQueue(this@PlayActivity)
                     }
+                    finishAffinity()
                     val intent = Intent(this@PlayActivity, ResultActivity::class.java)
                     startActivity(intent)
                 } else {
